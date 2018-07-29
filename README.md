@@ -1,4 +1,4 @@
-### Pwned: Americans' Exposure to Account Breaches
+### Pwned: How Often Are Americans' Online Accounts Breached?
 
 We merge data from a large representative sample from YouGov (n = 5,000) with data from https://haveibeenpwned.com to assess the extent to which an average American's credentials are exposed in some of the biggest public breaches. and how that exposure varies by race, education, income, and age.
 
