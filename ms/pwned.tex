@@ -79,7 +79,7 @@
 
 setwd(paste0(githubdir, "pwned/ms/"))
 tools::texi2dvi("pwned.tex", pdf = TRUE, clean = TRUE)
-setwd(basedir)
+setwd(githubdir)
 
 \end{comment}
 
@@ -154,49 +154,11 @@ At least 82.84\% Americans' accounts have been breached at least once. In total,
 The relationship between how frequently emails are part of breaches and socio-economic factors suggests that on the whole who are more likely to use online services are more likely to have had their accounts breached. Though there are a few exceptions. 
 Women's accounts are 1.2 times more likely to be breached than men's (see Table ~\ref{table:socdem_dat}). Analyzing breaches by race, African Americans' and Whites' accounts are most frequently breached. The mean number of breaches their email is part of is 3.12 and 3.16 for African Americans and Whites respectively. For Hispanics/Latinos, the corresponding number is 2.5. And for Asians, the mean is 2.82, about 0.90 times that of the average for Whites.
 
-\begin{table}[h!]
-\centering
-\caption{Frequency of Account Breaches By Socio-economic Factors.}
-\begin{tabular}{ l c }
-\hline    
- & mean \\
-\hline
-race   & \\
-\hspace{2mm}white            &  3.12\\
-\hspace{2mm}hispanic/latino  &  2.50\\
-\hspace{2mm}black            &  3.16\\
-\hspace{2mm}asian            &  2.82\\
-\hspace{2mm}middle eastern   &  2.66\\
-\hspace{2mm}mixed race       &  2.45\\
-\hspace{2mm}native american  &  2.96\\
-\hspace{2mm}other            &  2.92\\
-& \\
-sex & \\
-\hspace{2mm}female          &  3.17\\
-\hspace{2mm}male            &  2.82\\
-& \\
-age & \\
-\hspace{2mm}(18, 25]     & 3.07 \\
-\hspace{2mm}(25, 35]     & 3.49\\
-\hspace{2mm}(35, 50]     & 3.29\\
-\hspace{2mm}(50, 65]     & 2.29 \\
-\hspace{2mm}(65, 100]    & 3.41 \\
-& \\
-education & \\
-\hspace{2mm}no hs                 &   2.35\\
-\hspace{2mm}hs grad.              &   2.89\\
-\hspace{2mm}some college          &   3.04\\
-\hspace{2mm}2-year college degree &   3.07\\
-\hspace{2mm}4-year college degree &   3.22\\
-\hspace{2mm}postgrad degree       &   3.20\\
-\hline
-\end{tabular}
-\label{table:socdem_dat}
-\end{table}
+\input{../tabs/tab2_freq_se_by_group.tex}
 
 Looking at education, the relationship is roughly monotonic, with the mean number of breaches increasing with education. The average number of breaches people with no HS are part of is just 2.35. Compare this to postgraduates, with a mean of 3.20 or 1.3 times as likely.
 
-Lastly, for age, the relationship is curvilinear, with young people's and seniors' accounts least likely to be breached, and mid-aged adults' accounts most likely to be breached.
+Lastly, for age, the relationship is curvilinear, with young people's and seniors' accounts least likely to be breached, and middle-aged adults' accounts most likely to be breached.
 
 To assess the source of the exposure, we checked the source of the 14,979 breaches. The 14,979 breaches stemmed from 156 different sites, but there was a sharp skew with 21 sites with more than 100 breaches alone accounting for 11,783 of the breaches. Table ~\ref{table:domain_dat} lists the 21 sites. Prominent websites like \url{linkedin.com}, \url{adobe.com}, \url{dropbox.com}, \url{lastfm.com}, among others feature on the list. 
 
@@ -207,10 +169,10 @@ To assess the source of the exposure, we checked the source of the 14,979 breach
 \hline    
 domain name & n \\
 \hline
-rivercitymediaonline.com &   2913 \\
-linkedin.com             &  1089 \\
-modbsolutions.com        &   1067\\
-myspace.com              &   1059\\
+rivercitymediaonline.com &   2,913 \\
+linkedin.com             &   1,089 \\
+modbsolutions.com        &   1,067\\
+myspace.com              &   1,059\\
 data4marketers.com       &    996\\
 cashcrate.com            &    856\\
 adobe.com                &    609\\
@@ -283,5 +245,66 @@ And generally speaking, the people most at risk are those who are the likeliest 
 \clearpage
 \bibliographystyle{apsr}
 \bibliography{pwned}
+
+\clearpage
+\appendix
+\renewcommand{\thesection}{SI \arabic{section}}
+\setcounter{table}{0}\renewcommand\thetable{\thesection.\arabic{table}}  
+\setcounter{figure}{0}\renewcommand\thefigure{\thesection.\arabic{figure}}
+\counterwithin{figure}{section}
+
+\section{Supporting Information}
+
+\subsection{Tables}
+
+\input{../tabs/race_pwned.tex}
+\clearpage
+
+\input{../tabs/sex_pwned.tex}
+\clearpage
+
+\input{../tabs/educ_pwned.tex}
+
+\clearpage
+\input{../tabs/age_pwned.tex}
+
+\clearpage
+\subsection{Figures}
+
+\begin{figure}[H]
+  \centering
+  \captionsetup{font={small,it}}
+   \caption{Relationship Between Race and Number of Breaches
+  \label{fig:race_breaches}}
+    \includegraphics[scale=.75]{../figs/race_pwned.pdf}
+\end{figure}
+\clearpage
+
+\begin{figure}[H]
+  \centering
+  \captionsetup{font={small,it}}
+   \caption{Relationship Between Sex and Number of Breaches  
+  \label{fig:sex_breaches}}
+    \includegraphics[scale=.75]{../figs/sex_pwned.pdf}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[H]
+  \centering
+  \captionsetup{font={small,it}}
+   \caption{Relationship Between Education and Number of Breaches 
+  \label{fig:educ_breaches}}
+    \includegraphics[scale=.75]{../figs/educ_pwned.pdf}
+\end{figure}
+\clearpage
+
+\begin{figure}[H]
+  \centering
+  \captionsetup{font={small,it}}
+   \caption{Relationship Between Age and Number of Breaches  
+  \label{fig:age_breaches}}
+    \includegraphics[scale=.75]{../figs/age_pwned.pdf}
+\end{figure}
 
 \end{document}
