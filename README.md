@@ -28,8 +28,8 @@ We find that at least 82.8\% of Americans have had their accounts breached at le
     - [YG Profile Data (CSV)](data/YGOV1058_profile.csv)
         - [YG Profile codebook (pdf)](data/Profile_codebook_ygov1058.pdf)
     - [HIBP Data on the people (CSV)](data/YGOV1058_pwned.csv)
-        -  [HIBP v2 API (pdf)](data/hipb_v2_api.pdf)
-        -  [HIBP codebook (xlsx)](data/hipb_codebook.xlsx)
+        -  [HIBP v2 API (pdf)](data/hibp_v2_api.pdf)
+        -  [HIBP codebook (xlsx)](data/hibp_codebook.xlsx)
     - [HIBP Data on Breaches (JSON)](data/breaches.json)
 
 * [Analysis](scripts/)
