@@ -34,7 +34,7 @@ We find that at least 82.8\% of Americans have had their accounts breached at le
 
 * [Analysis](scripts/)
     - [Jupyter notebook](scripts/pwned.ipynb)
-    - [Replication R script](scripts/pwned_replication_plus_analyses.R)
+    - [R script for fancy tables, plots, and replication](scripts/pwned_replication_plus_analyses.R)
 
 * [Figs](figs/)
 
