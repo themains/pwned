@@ -31,10 +31,12 @@ We find that at least 82.8\% of Americans have had their accounts breached at le
         -  [HIBP v2 API (pdf)](data/hibp_v2_api.pdf)
         -  [HIBP codebook (xlsx)](data/hibp_codebook.xlsx)
     - [HIBP Data on Breaches (JSON)](data/breaches.json)
+    - [Current Population Survey Data (xlsx)](data/cps_2018.xlsx) and [CSV](data/cps_2018.csv)
 
 * [Analysis](scripts/)
     - [Jupyter notebook](scripts/pwned.ipynb)
     - [R script for fancy tables, plots, and replication](scripts/pwned_replication_plus_analyses.R)
+    - [R Script for comparing YG to CPS](scripts/yg_cps.R)
 
 * [Figs](figs/)
 

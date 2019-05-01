@@ -1,0 +1,23 @@
+Var,totals,proportion
+Age,,
+18 to 25,"33,843",0.136332874
+26 to 35,"43,940",0.177007549
+36 to 50,"60,846",0.245111546
+51 to 65,"62,303",0.250980913
+66 to 80+,"47,306",0.190567117
+Sex,,
+Male,"119,855",0.482822936
+Female,"128,383",0.517177064
+Race,,
+White alone,"193,503",0.779505958
+Black or African American alone,"31,363",0.126342462
+American Indian and Alaska Native alone,"2,661",0.010719551
+Asian alone,"15,417",0.062105721
+Native Hawaiian and Other Pacific Islander alone,865,0.003484559
+Two or more races,"4,430",0.017845777
+Educational Attainment,,
+No high school diploma,"27,172",0.10945947
+High school or equivalent,"71,145",0.286599956
+"Some college, less than 4-yr degree","69,862",0.281431529
+Bachelor's degree or higher,"80,060",0.322513072
+Totals,"248,238",1

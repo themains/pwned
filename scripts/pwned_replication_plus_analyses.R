@@ -355,3 +355,4 @@ print(xtable(fin_res,
                sanitize.text.function = function(x) {x},
                table.placement = "!htb",
                file = "tabs/tab4_freq_se_by_validate_group.tex")
+
