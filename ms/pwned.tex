@@ -24,6 +24,8 @@
 \acmDOI{10.1145/3292522.3326046}
 \acmISBN{978-1-4503-6202-3/19/06}
 
+\fancyhead{}
+
 %
 % These commands are for a JOURNAL article.
 %\setcopyright{acmcopyright}
@@ -47,16 +49,18 @@
 % end of the preamble, start of the body of the document source.
 \begin{document}
 
+%\fancyhead{}
+
 \begin{comment}
 
-setwd(paste0(githubdir, "pwned/ms/"))
+setwd(paste0(githubdir, "pwned_dev/ms/"))
 tools::texi2dvi("pwned.tex", pdf = TRUE, clean = TRUE)
 setwd(githubdir)
 
 \end{comment}
 %
 % The "title" command has an optional parameter, allowing the author to define a "short title" to be used in page headers.
-\title[Pwned]{Pwned: The Risk of Exposure From Data Breaches}
+\title[Pwned]{Pwned: The Risk of Exposure From Data Breaches}\titlenote{Data, scripts, and supporting information can be downloaded from \url{http://github.com/themains/pwned}.}
 
 %
 % The "author" command and its associated commands are used to define the authors and their affiliations.
@@ -86,7 +90,7 @@ setwd(githubdir)
 %
 % The abstract is a short summary of the work to be presented in the article.
 \begin{abstract}
-News about massive data breaches is increasingly common. But we do not know what proportion of Americans are exposed in these breaches. We combine data from a large, representative sample of American adults (n = 5,000), recruited by YouGov, with data from \textit{Have I Been Pwned} to estimate the lower bound of the number of times an average American's private information has been exposed. We find that at least 82.84\% of Americans have had their private information, including account credentials, Social Security Number, etc., exposed. On average, Americans' private information has been exposed in at least three breaches. The better educated, the middle-aged, women, and Whites are more likely to have had their accounts breached than the complementary groups.
+News about massive data breaches is increasingly common. But what proportion of Americans are exposed in these breaches is still unknown. We combine data from a large, representative sample of American adults (n = 5,000), recruited by YouGov, with data from \textit{Have I Been Pwned} to estimate the lower bound of the number of times Americans' private information has been exposed. We find that at least 82.84\% of Americans have had their private information, such as account credentials, Social Security Number, etc., exposed. On average, Americans' private information has been exposed in at least three breaches. The better educated, the middle-aged, women, and Whites are more likely to have had their accounts breached than the complementary groups.
 \end{abstract}
 
 %
@@ -129,12 +133,12 @@ News about massive data breaches is increasingly common. But we do not know what
 \section{Introduction}
 On the Internet, nobody knows you're a dog. So the adage goes. But increasingly, others know that you like dog food and hate cats. Many of us have made our peace with this new reality. A slew of massive account breaches in recent years, however, threatens to pull the rug from under all illusions of anonymity \cite{mccandless}.\footnote{On September 22, 2016, for instance, Yahoo! revealed that 500M accounts had been compromised in a breach \cite{fiegerman}. Less than three months later, on December 14, 2016, Yahoo! announced that data had been stolen from nearly 1B user accounts in a different breach \cite{newman}. In all, Wikipedia lists 272 separate breaches between 2004 and 2018 (see \href{https://en.wikipedia.org/wiki/List_of_data_breaches}{https://en.wikipedia.org/wiki/List\_of\_data\_breaches})}
 
-But there is little existing research on how frequently Americans' private information is part of such breaches. Much of the research on data breaches has focused on the downstream impact on corporations, e.g., \cite{whitler2017impact, rosati2019social, janakiraman2018effect}, and people, e.g., \cite{cross2019media, mikhed2018data, curtis2018consumer}. Such research is vital---it informs data breach notification policy and laws, e.g., \cite{nieuwesteeg2018analysis, marcus2018data, kuhn2018147}. But absent from the literature is data that is important for developing effective public policy and laws on corporate liability for data breaches---data on the average American's risk of their private information being exposed in a data breach. In this note, we shed light on this mostly unexplored question. 
+But there is little existing research on how frequently Americans' private information is part of such breaches. Much of the research on data breaches has focused on the downstream impact on corporations, e.g., \cite{whitler2017impact, rosati2019social, janakiraman2018effect}, and people, e.g., \cite{cross2019media, mikhed2018data, curtis2018consumer}. Such research is vital---it informs data breach notification policies, e.g., \cite{nieuwesteeg2018analysis, marcus2018data, kuhn2018147}. But absent from the literature is data that is important for developing effective public policy on corporate liability for data breaches---data on the average American's risk of their private information being exposed in a data breach. In this note, we shed light on this question. 
 
 Using a unique dataset, we estimate the lower bound of the average number of breached online accounts per person. We merge data from a large representative sample from YouGov (n = 5,000) with data from \href{https://haveibeenpwned.com}{Have I Been Pwned} (HIBP). We check whether the email associated with the YouGov account is part of the 293 public breaches cataloged by HIBP. We also study how exposure to breaches varies by socio-economic factors including ethnicity, sex, age, and education.
 
 \section{Data and Methods}
-In July 2018, YouGov drew a nationally representative sample of 5,000 adult Americans. YouGov draws the sample as follows: it starts with a random sample of a high-quality sample of American adults, e.g., Current Population Survey, and then finds people on its panel that match the drawn sample most closely \cite{rivers}. Some research suggests that the quality of samples drawn by YouGov is comparable to those drawn using probability sampling \cite{ansolabehere}. The sample that YouGov drew here, however, is better than its traditional survey samples. Non-response bias in our sample is zero because YouGov did not have to send out surveys; it used the emails associated with the accounts to collect the data. (YouGov never shared the emails with us.) Table~\ref{table:yg_dat} presents the marginals on key socio-demographic variables (see \href{https://github.com/themains/pwned/tree/master/data}{here} for the codebook). (Table~\ref{table:cps_yg} presents the comparison between the Current Population Survey (CPS) and YouGov on key demographic variables. The upshot is that on key marginals, the difference between YouGov and CPS is less than 5\%.)
+In July 2018, YouGov drew a nationally representative sample of 5,000 adult Americans. YouGov draws the sample as follows: it starts with a random sample of a high-quality sample of American adults, e.g., Current Population Survey, and then finds people on its panel that match the drawn sample most closely \cite{rivers}. Some research suggests that the quality of samples drawn by YouGov is comparable to those drawn using probability sampling \cite{ansolabehere}. The sample that YouGov drew here, however, is better than its traditional survey samples. Non-response bias in our sample is zero because YouGov did not have to send out surveys; it used the emails associated with the accounts to collect the data. (YouGov never shared the emails with us.) Table~\ref{table:yg_dat} presents the marginals on key socio-demographic variables (see \href{https://github.com/themains/pwned/tree/master/data}{here} for the codebook). (Table Supporting Information (SI)\footnote{Supporting information can be downloaded from \url{http://github.com/themains/pwned}.} 1.1 presents the comparison between the Current Population Survey (CPS) and YouGov on key demographic variables. The upshot is that on key marginals, the difference between YouGov and CPS is less than 5\%.)
 
 \begin{table}[h!]
 \centering
@@ -185,15 +189,15 @@ With each request, HIBP returns some metadata on the kind of breaches. (See the 
 
 In all, 14,979 breaches are associated with the 5,000 emails on file. Or on average, there are three breaches per person. The median is also three. And at least 82.84\% of Americans' accounts have been breached at least once. 
 
-The relationship between the number of breaches and socio-economic is counter to what focusing on traditional concerns around the digital divide would lead us to believe. If anything, the data suggest that people who use online services more are somewhat more likely to have their accounts breached. (See \ref{fig:si_tables} and \ref{fig:si_figs} for corresponding regressions and figures illustrating group-wise means along with the 95\% confidence intervals.) 
+The relationship between the number of breaches and socio-economic is counter to what focusing on traditional concerns around the digital divide would lead us to believe. If anything, the data suggest that people who use online services more are somewhat more likely to have their accounts breached. (See SI 1 Tables and SI 2 Figures for corresponding regressions and figures illustrating group-wise means along with the 95\% confidence intervals.) 
 
-The number of breaches increases roughly monotonically with education (see Table~\ref{tab:educ_breaches} and Figure~\ref{fig:educ_breaches}). The average number of breaches among people with no high school degree is 2.35. Compare this to postgraduates, who are part of 3.20 breaches on average (or 1.3 times the average of people with no high school degree).
+The number of breaches increases roughly monotonically with education (see Table SI 1.4 and Figure SI 2.3). The average number of breaches among people with no high school degree is 2.35. Compare this to postgraduates, who are part of 3.20 breaches on average (or 1.3 times the average of people with no high school degree).
 
-In contrast to the relationship between education and the number of breaches, the relationship between the number of breaches and age is curvilinear (see Table \ref{tab:age_breaches}), with young people's and seniors' accounts least likely to be breached, and middle-aged adults' accounts most likely to be breached. But, as the loess illustrates (see Figure \ref{fig:age_breaches}), the relationship is modest.
+In contrast to the relationship between education and the number of breaches, the relationship between the number of breaches and age is curvilinear (see Table SI 1.5), with young people's and seniors' accounts least likely to be breached, and middle-aged adults' accounts most likely to be breached. But, as the loess illustrates (see Figure SI 2.4), the relationship is modest.
 
 \input{../tabs/tab2_freq_se_by_group.tex}
 
-When we compare the average number of breaches among men and women, we find that women's accounts are 1.12 times more likely to be breached than men's (see Table ~\ref{table:socdem_dat} and \ref{tab:sex_breaches}; $p < .05$). Analyzing breaches by ethnicity, Blacks' and Whites' accounts are most frequently breached. The mean number of breaches associated with the emails for Blacks and Whites is 3.12 and 3.16 respectively. For Hispanics/Latinos, the corresponding number is 2.5 (see Table \ref{tab:race_breaches}; $p < .05$). And for Asians, the mean is 2.82.
+When we compare the average number of breaches among men and women, we find that women's accounts are 1.12 times more likely to be breached than men's (see Table ~\ref{table:socdem_dat} and Table SI 1.3; $p < .05$). Analyzing breaches by ethnicity, Blacks' and Whites' accounts are most frequently breached. The mean number of breaches associated with the emails for Blacks and Whites is 3.12 and 3.16 respectively. For Hispanics/Latinos, the corresponding number is 2.5 (see Table SI 1.2; $p < .05$). And for Asians, the mean is 2.82.
 
 To assess the source of the exposure, we checked the source of the breaches. The 14,979 breaches stemmed from 156 different sites, but there was a sharp skew with 21 sites with more than 100 breaches accounting for 11,783 of the breaches. Table ~\ref{table:domain_dat} lists the 21 sites. Prominent websites like \url{linkedin.com}, \url{adobe.com}, \url{dropbox.com}, \url{lastfm.com}, among others feature on the list.
 
@@ -245,72 +249,5 @@ We also find that the kinds of people who are most likely to use online services
 \clearpage
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{pwned}
-
-\clearpage
-\appendix
-\renewcommand{\thesection}{SI \arabic{section}}
-\setcounter{table}{0}\renewcommand\thetable{\thesection.\arabic{table}}  
-\setcounter{figure}{0}\renewcommand\thefigure{\thesection.\arabic{figure}}
-\counterwithin{figure}{section}
-
-\section{Supporting Information}
-
-\subsection{Tables}
-\label{fig:si_tables}
-
-The missing entries reflect cases where we do not have commensurate categories in our data. The largest differences we see are on race and ethnicity, a variable where our coding differs from CPS in meaningful ways. 
-
-\input{../tabs/tabsi_yg_cps.tex}
-\clearpage
-
-\input{../tabs/race_pwned.tex}
-\clearpage
-
-\input{../tabs/sex_pwned.tex}
-\clearpage
-
-\input{../tabs/educ_pwned.tex}
-
-\clearpage
-\input{../tabs/age_pwned.tex}
-
-\clearpage
-\subsection{Figures}
-\label{fig:si_figs}
-
-\begin{figure}[H]
-  \centering
-  \captionsetup{font={small,it}}
-   \caption{Relationship Between Race and Number of Breaches
-  \label{fig:race_breaches}}
-    \includegraphics[scale=.75]{../figs/race_pwned.pdf}
-\end{figure}
-\clearpage
-
-\begin{figure}[H]
-  \centering
-  \captionsetup{font={small,it}}
-   \caption{Relationship Between Sex and Number of Breaches  
-  \label{fig:sex_breaches}}
-    \includegraphics[scale=.75]{../figs/sex_pwned.pdf}
-\end{figure}
-\clearpage
-
-\begin{figure}[H]
-  \centering
-  \captionsetup{font={small,it}}
-   \caption{Relationship Between Education and Number of Breaches 
-  \label{fig:educ_breaches}}
-    \includegraphics[scale=.75]{../figs/educ_pwned.pdf}
-\end{figure}
-\clearpage
-
-\begin{figure}[H]
-  \centering
-  \captionsetup{font={small,it}}
-   \caption{Relationship Between Age and Number of Breaches  
-  \label{fig:age_breaches}}
-    \includegraphics[scale=.75]{../figs/age_pwned.pdf}
-\end{figure}
 
 \end{document}

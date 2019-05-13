@@ -1,0 +1,131 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[titletoc,title]{appendix}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage[tableposition=top]{caption}
+\newcommand\fnote[1]{\captionsetup{font=small}\caption*{#1}}
+
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\definecolor{dark-red}{rgb}{0.75,0.10,0.10} 
+\usepackage[margin=1in]{geometry}
+\usepackage[linkcolor=dark-red,
+            colorlinks=true,
+            urlcolor=blue,
+            pdfstartview={XYZ null null 1.00},
+            pdfpagemode=UseNone,
+            citecolor={dark-red},
+            pdftitle={SI for Pwned}]{hyperref}
+%\usepackage{multibib}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{letterpaper}               % This is 8.5x11 paper. Options are a4paper or a5paper or other... 
+\usepackage{graphicx}                % Handles inclusion of major graphics formats and allows use of 
+\usepackage{amsfonts,amssymb,amsbsy}
+\usepackage{amsxtra}
+\usepackage{natbib}
+\DeclareRobustCommand{\firstsecond}[2]{#1}
+\usepackage{verbatim}
+\setcitestyle{round,semicolon,aysep={},yysep={;}}
+\usepackage{setspace}             % Permits line spacing control. Options are \doublespacing, \onehalfspace
+\usepackage{sectsty}             % Permits control of section header styles
+\usepackage{lscape}
+\usepackage{fancyhdr}             % Permits header customization. See header section below.
+\usepackage{url}                 % Correctly formats URLs with the \url{} tag
+\usepackage{fullpage}             %1-inch margins
+\usepackage{multirow}
+\usepackage{rotating}
+\setlength{\parindent}{3em}
+\usepackage{subcaption}
+\usepackage{float}
+
+%\usepackage[T1]{fontenc}
+%\usepackage{bm}
+\usepackage{lmodern}
+%\usepackage{libertine}
+%\usepackage{gfsdidot}
+\usepackage{chngcntr}
+
+\title{\Large{Supporting Information for Pwned:  The Risk of Exposure From Data Breaches}\footnote{Data and scripts behind the analysis presented here can be downloaded from \url{http://github.com/themains/pwned}.
+}}
+
+\author{Gaurav Sood\thanks{Gaurav can be reached at \href{mailto:gsood07@gmail.com}{\footnotesize{\texttt{gsood07@gmail.com}}}} \and Ken Cor\thanks{Ken can be reached at: \href{mailto:mcor@ualberta.ca}{\footnotesize{\texttt{mcor@ualberta.ca}}}}\vspace{.5cm}}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+%\vspace{.5cm}\textbf{NB:} Preliminary draft. Please do not cite without permission.\vspace{1.5cm}
+\end{center}
+
+\begin{comment}
+
+setwd(paste0(githubdir, "pwned_dev/ms/"))
+tools::texi2dvi("pwned_si.tex", pdf = TRUE, clean = TRUE)
+setwd(githubdir)
+
+\end{comment}
+
+\renewcommand{\thesection}{SI \arabic{section}}
+\renewcommand\thetable{\thesection.\arabic{table}}  
+\renewcommand\thefigure{\thesection.\arabic{figure}}
+\counterwithin{figure}{section}
+
+\clearpage
+\section{Tables}
+\label{fig:si_tables}
+
+The missing entries reflect cases where we do not have commensurate categories in our data. The largest differences we see are on race and ethnicity, a variable where our coding differs from CPS in meaningful ways. 
+
+\input{../tabs/tabsi_yg_cps.tex}
+\clearpage
+
+\input{../tabs/race_pwned.tex}
+\clearpage
+
+\input{../tabs/sex_pwned.tex}
+\clearpage
+
+\input{../tabs/educ_pwned.tex}
+
+\clearpage
+\input{../tabs/age_pwned.tex}
+
+\clearpage
+\section{Figures}
+\label{fig:si_figs}
+
+\begin{figure}[H]
+  \centering
+  \captionsetup{font={small,it}}
+   \caption{Relationship Between Race and Number of Breaches
+  \label{fig:race_breaches}}
+    \includegraphics[scale=.75]{../figs/race_pwned.pdf}
+\end{figure}
+\clearpage
+
+\begin{figure}[H]
+  \centering
+  \captionsetup{font={small,it}}
+   \caption{Relationship Between Sex and Number of Breaches  
+  \label{fig:sex_breaches}}
+    \includegraphics[scale=.75]{../figs/sex_pwned.pdf}
+\end{figure}
+\clearpage
+
+\begin{figure}[H]
+  \centering
+  \captionsetup{font={small,it}}
+   \caption{Relationship Between Education and Number of Breaches 
+  \label{fig:educ_breaches}}
+    \includegraphics[scale=.75]{../figs/educ_pwned.pdf}
+\end{figure}
+\clearpage
+
+\begin{figure}[H]
+  \centering
+  \captionsetup{font={small,it}}
+   \caption{Relationship Between Age and Number of Breaches  
+  \label{fig:age_breaches}}
+    \includegraphics[scale=.75]{../figs/age_pwned.pdf}
+\end{figure}
+
+\end{document}

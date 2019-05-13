@@ -1,0 +1,243 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{16}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{Ansolabehere and Schaffner}{Ansolabehere and
+  Schaffner}{2014}]%
+        {ansolabehere}
+\bibfield{author}{\bibinfo{person}{Stephen Ansolabehere} {and}
+  \bibinfo{person}{Brian~F Schaffner}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Does survey mode still matter? Findings from a 2010
+  multi-mode comparison}.
+\newblock \bibinfo{journal}{\emph{Political Analysis}} \bibinfo{volume}{22},
+  \bibinfo{number}{3} (\bibinfo{year}{2014}), \bibinfo{pages}{285--303}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Cross, Parker, and Sansom}{Cross
+  et~al\mbox{.}}{2019}]%
+        {cross2019media}
+\bibfield{author}{\bibinfo{person}{Cassandra Cross}, \bibinfo{person}{Megan
+  Parker}, {and} \bibinfo{person}{Daniel Sansom}.}
+  \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Media discourses surrounding ``non-ideal'' victims:
+  The case of the Ashley Madison data breach}.
+\newblock \bibinfo{journal}{\emph{International Review of Victimology}}
+  \bibinfo{volume}{25}, \bibinfo{number}{1} (\bibinfo{year}{2019}),
+  \bibinfo{pages}{53--69}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Curtis, Carre, and Jones}{Curtis
+  et~al\mbox{.}}{2018}]%
+        {curtis2018consumer}
+\bibfield{author}{\bibinfo{person}{Shelby~R Curtis},
+  \bibinfo{person}{Jessica~Rose Carre}, {and} \bibinfo{person}{Daniel~Nelson
+  Jones}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Consumer security behaviors and trust following a
+  data breach}.
+\newblock \bibinfo{journal}{\emph{Managerial Auditing Journal}}
+  \bibinfo{volume}{33}, \bibinfo{number}{4} (\bibinfo{year}{2018}),
+  \bibinfo{pages}{425--435}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Fiegerman}{Fiegerman}{2016}]%
+        {fiegerman}
+\bibfield{author}{\bibinfo{person}{Seth Fiegerman}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \bibinfo{title}{Yahoo says 500 million accounts stolen}.
+\newblock
+\newblock
+\urldef\tempurl%
+\url{https://money.cnn.com/2016/09/22/technology/yahoo-data-breach/}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Janakiraman, Lim, and Rishika}{Janakiraman
+  et~al\mbox{.}}{2018}]%
+        {janakiraman2018effect}
+\bibfield{author}{\bibinfo{person}{Ramkumar Janakiraman},
+  \bibinfo{person}{Joon~Ho Lim}, {and} \bibinfo{person}{Rishika Rishika}.}
+  \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{The effect of a data breach announcement on
+  customer behavior: Evidence from a multichannel retailer}.
+\newblock \bibinfo{journal}{\emph{Journal of Marketing}} \bibinfo{volume}{82},
+  \bibinfo{number}{2} (\bibinfo{year}{2018}), \bibinfo{pages}{85--105}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Kuhn}{Kuhn}{2018}]%
+        {kuhn2018147}
+\bibfield{author}{\bibinfo{person}{McKenzie~L Kuhn}.}
+  \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{147 Million Social Security Numbers for Sale:
+  Developing Data Protection Legislation After Mass Cybersecurity Breaches}.
+\newblock \bibinfo{journal}{\emph{Iowa L. Rev.}}  \bibinfo{volume}{104}
+  (\bibinfo{year}{2018}), \bibinfo{pages}{417}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Laohaprapanon and Sood}{Laohaprapanon and
+  Sood}{2018}]%
+        {laohaprapanon}
+\bibfield{author}{\bibinfo{person}{Suriyan Laohaprapanon} {and}
+  \bibinfo{person}{Gaurav Sood}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \bibinfo{title}{Domain Knowledge: Predicting the Kind of Content
+  Hosted by a Domain}.
+\newblock
+\newblock
+\urldef\tempurl%
+\url{http://www.gsood.com/research/papers/domain_knowledge.pdf}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Marcus}{Marcus}{2018}]%
+        {marcus2018data}
+\bibfield{author}{\bibinfo{person}{Daniel~J Marcus}.}
+  \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{The Data Breach Dilemma: Proactive Solutions for
+  Protecting Consumers' Personal Information}.
+\newblock \bibinfo{journal}{\emph{Duke LJ}}  \bibinfo{volume}{68}
+  (\bibinfo{year}{2018}), \bibinfo{pages}{555}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{McCandless}{McCandless}{2017}]%
+        {mccandless}
+\bibfield{author}{\bibinfo{person}{David McCandless}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \bibinfo{title}{World's Biggest Data Breaches \& Hacks}.
+\newblock
+\newblock
+\urldef\tempurl%
+\url{http://www.informationisbeautiful.net/visualizations/worlds-biggest-data-breaches-hacks/}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Mikhed and Vogan}{Mikhed and Vogan}{2018}]%
+        {mikhed2018data}
+\bibfield{author}{\bibinfo{person}{Vyacheslav Mikhed} {and}
+  \bibinfo{person}{Michael Vogan}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{How data breaches affect consumer credit}.
+\newblock \bibinfo{journal}{\emph{Journal of Banking \& Finance}}
+  \bibinfo{volume}{88} (\bibinfo{year}{2018}), \bibinfo{pages}{192--207}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Newman}{Newman}{2016}]%
+        {newman}
+\bibfield{author}{\bibinfo{person}{Lily~Hay Newman}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \bibinfo{title}{Hack Brief: Hackers Breach A Billion Yahoo Accounts.
+  A Billion}.
+\newblock
+\newblock
+\urldef\tempurl%
+\url{https://www.wired.com/2016/12/yahoo-hack-billion-users/}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Nieuwesteeg and Faure}{Nieuwesteeg and
+  Faure}{2018}]%
+        {nieuwesteeg2018analysis}
+\bibfield{author}{\bibinfo{person}{Bernold Nieuwesteeg} {and}
+  \bibinfo{person}{Michael Faure}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{An analysis of the effectiveness of the EU data
+  breach notification obligation}.
+\newblock \bibinfo{journal}{\emph{Computer Law \& Security Review}}
+  \bibinfo{volume}{34}, \bibinfo{number}{6} (\bibinfo{year}{2018}),
+  \bibinfo{pages}{1232--1246}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Rivers}{Rivers}{2010}]%
+        {rivers}
+\bibfield{author}{\bibinfo{person}{Douglas Rivers}.}
+  \bibinfo{year}{2010}\natexlab{}.
+\newblock \bibinfo{title}{Decennial Census Surname Files (2010, 2000)}.
+\newblock
+\newblock
+\newblock
+\shownote{Sample Matching: Representative Sampling from Internet Panels,
+  \url{https://github.com/themains/pwned/lit/rivers.pdf}.}
+
+
+\bibitem[\protect\citeauthoryear{Rosati, Deeney, Cummins, Van~der Werff, and
+  Lynn}{Rosati et~al\mbox{.}}{2019}]%
+        {rosati2019social}
+\bibfield{author}{\bibinfo{person}{Pierangelo Rosati}, \bibinfo{person}{Peter
+  Deeney}, \bibinfo{person}{Mark Cummins}, \bibinfo{person}{Lisa Van~der
+  Werff}, {and} \bibinfo{person}{Theo Lynn}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Social media and stock price reaction to data
+  breach announcements: Evidence from US listed companies}.
+\newblock \bibinfo{journal}{\emph{Research in International Business and
+  Finance}}  \bibinfo{volume}{47} (\bibinfo{year}{2019}),
+  \bibinfo{pages}{458--469}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Van~Deursen and Van~Dijk}{Van~Deursen and
+  Van~Dijk}{2011}]%
+        {van2011internet}
+\bibfield{author}{\bibinfo{person}{Alexander Van~Deursen} {and}
+  \bibinfo{person}{Jan Van~Dijk}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Internet skills and the digital divide}.
+\newblock \bibinfo{journal}{\emph{New media \& society}} \bibinfo{volume}{13},
+  \bibinfo{number}{6} (\bibinfo{year}{2011}), \bibinfo{pages}{893--911}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Whitler and Farris}{Whitler and
+  Farris}{2017}]%
+        {whitler2017impact}
+\bibfield{author}{\bibinfo{person}{Kimberly~A Whitler} {and}
+  \bibinfo{person}{Paul~W Farris}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{The impact of cyber attacks on brand image: Why
+  proactive marketing expertise is needed for managing data breaches}.
+\newblock \bibinfo{journal}{\emph{Journal of Advertising Research}}
+  \bibinfo{volume}{57}, \bibinfo{number}{1} (\bibinfo{year}{2017}),
+  \bibinfo{pages}{3--9}.
+\newblock
+
+
+\end{thebibliography}
