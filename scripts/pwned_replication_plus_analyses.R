@@ -4,7 +4,7 @@
 
 # Set dir.
 setwd(githubdir)
-setwd("pwned/")
+setwd("pwned_dev/")
 
 # Load dat
 yg <- read.csv("data/YGOV1058_profile.csv")
@@ -167,6 +167,24 @@ cust_theme <- theme_minimal() +
       axis.text.x  = element_text(vjust = .3),
       plot.margin = unit(c(.5, .75, .5, .5), "cm"))
 
+# Do some plots
+# Custom ggplot theme
+cust_present_theme <- theme_minimal() +
+   theme(plot.background = element_rect(fill = "black"),
+      panel.background = element_rect(fill = 'black', colour = '#bcbcbc', size = .2),
+      panel.grid.major = element_line(color = "#bcbcbc",  linetype = "dotted", size = 0.2),
+      panel.grid.minor = element_blank(),
+      legend.position  = "bottom",
+      legend.key       = element_blank(),
+      legend.key.width = unit(1, "cm"),
+      axis.title   = element_text(size = 10, color = "#dadada"),
+      axis.text    = element_text(size = 10, color = "#cacaca"),
+      axis.title.x = element_text(vjust = 1, margin = margin(10, 0, 0, 0)),
+      axis.title.y = element_text(vjust = 1),
+      axis.ticks   = element_line(color = "#c1c1c1", linetype = "dotted", size = .2),
+      axis.text.x  = element_text(vjust = .3),
+      plot.margin = unit(c(.5, .75, .5, .5), "cm"))
+
 ggplot(fin_id_dat, aes(age, total_pwn)) +
   geom_point(alpha = .05) +
   geom_smooth(method = "loess") +
@@ -175,6 +193,16 @@ ggplot(fin_id_dat, aes(age, total_pwn)) +
   cust_theme
 ggsave("figs/age_pwned.pdf")
 ggsave("figs/age_pwned.png")
+
+# Present
+ggplot(fin_id_dat, aes(age, total_pwn)) +
+  geom_point(alpha = .05, color = "#bcbcbc") +
+  geom_smooth(method = "loess", color = "#fdbc00") +
+  scale_x_continuous("Age", limits = c(18, 100), breaks = seq(20, 100, 10), labels = seq(20, 100, 10)) +
+  ylab("Number of Accounts Breached") + 
+  cust_present_theme
+ggsave("figs/age_pwned_present.pdf", scale = 1, dpi = 150, width = 3.5, height = 3.5)
+
 
 ggplot(fin_id_educ, aes(x = educ, y = mean_pwn)) + 
   geom_point(stat = "identity", color = "#777777") +
@@ -186,6 +214,15 @@ ggplot(fin_id_educ, aes(x = educ, y = mean_pwn)) +
 ggsave("figs/educ_pwned.pdf")
 ggsave("figs/educ_pwned.png")
 
+ggplot(fin_id_educ, aes(x = educ, y = mean_pwn)) + 
+  geom_point(stat = "identity", color = "#fdbc00") +
+  geom_errorbar(aes(ymin = mean_pwn - 1.96*se, ymax = mean_pwn + 1.96*se), width = .03, color = "#fecd00", size = .3) + 
+  ylab("Average Number of Accounts Breached") +
+  xlab("") + 
+  cust_present_theme +
+  coord_flip()
+ggsave("figs/educ_pwned_present.pdf", width = 4.5, height = 3.9)
+
 ggplot(fin_id_race, aes(x = race, y = mean_pwn)) + 
   geom_point(stat = "identity", color = "#777777") +
   geom_errorbar(aes(ymin = mean_pwn - 1.96*se, ymax = mean_pwn + 1.96*se), width = .03, color = "#A7A7A7", linetype = "dotted") + 
@@ -196,6 +233,15 @@ ggplot(fin_id_race, aes(x = race, y = mean_pwn)) +
 ggsave("figs/race_pwned.pdf")
 ggsave("figs/race_pwned.png")
 
+ggplot(fin_id_race, aes(x = race, y = mean_pwn)) + 
+  geom_point(stat = "identity", color = "#fdbc00") +
+  geom_errorbar(aes(ymin = mean_pwn - 1.96*se, ymax = mean_pwn + 1.96*se), width = .03, color = "#fecd00", size = .3) + 
+  ylab("Average Number of Accounts Breached") +
+  xlab("") +
+  cust_present_theme +
+  coord_flip()
+ggsave("figs/race_pwned_present.pdf", width = 4.5, height = 3.9)
+
 ggplot(fin_id_sex, aes(x = gender, y = mean_pwn)) + 
   geom_point(stat = "identity", color = "#777777") +
   geom_errorbar(aes(ymin = mean_pwn - 1.96*se, ymax = mean_pwn + 1.96*se), width = .03, color = "#A7A7A7", linetype = "dotted") + 
@@ -205,6 +251,15 @@ ggplot(fin_id_sex, aes(x = gender, y = mean_pwn)) +
   coord_flip()
 ggsave("figs/sex_pwned.pdf")
 ggsave("figs/sex_pwned.png")
+
+ggplot(fin_id_sex, aes(x = gender, y = mean_pwn)) + 
+  geom_point(stat = "identity", color = "#fdbc00") +
+  geom_errorbar(aes(ymin = mean_pwn - 1.96*se, ymax = mean_pwn + 1.96*se), width = .03, color = "#fecd00", size = .3) + 
+  ylab("Average Number of Accounts Breached") +
+  xlab("") +
+  cust_present_theme +
+  coord_flip()
+ggsave("figs/sex_pwned_present.pdf", width = 4.5, height = 3.9)
 
 # Run some regressions
 educ_lm <- lm(total_pwn ~ educ, data = fin_id_dat)
