@@ -47,3 +47,11 @@ We find that at least 82.8\% of Americans have had their accounts breached at le
 ### Authors
 
 Ken Cor and Gaurav Sood
+
+## 🔗 Adjacent Repositories
+
+- [themains/reg_breach](https://github.com/themains/reg_breach) — Have I Been Pwned? Yes. Evidence from HIBP and Emails From Voter Registration Files.
+- [themains/domain_knowledge](https://github.com/themains/domain_knowledge) — Domain Knowledge: Learning with pydomains
+- [themains/private_blacklight](https://github.com/themains/private_blacklight) — Privacy Online and Digital Divide on Online Privacy
+- [themains/pwned_pols](https://github.com/themains/pwned_pols) — A third of the politicians have had their data breached at least once. More alarmingly, over one in five have had their sensitive data, such as bank account numbers, biometric data, browsing history, chat logs, credit card CVV, etc., breached.
+- [themains/private_gov](https://github.com/themains/private_gov) — How common are third-party cookies, trackers, key loggers, etc. on government websites?
