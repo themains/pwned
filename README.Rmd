@@ -1,7 +1,3 @@
----
-output: github_document
----
-
 ```{r setup, include=FALSE}
 source("scripts/run_all.R")
 ```

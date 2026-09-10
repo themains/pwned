@@ -1,7 +1,3 @@
----
-output: github_document
----
-
 
 
 # Pwned: The Risk of Exposure From Data Breaches
