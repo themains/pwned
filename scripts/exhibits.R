@@ -48,7 +48,8 @@ for (variable in names(models)) {
   model_table <- coefficients |>
     filter(model == variable, inference == "OLS") |>
     mutate(term = sub("^(race|sex|education)", "", term),
-           term = sub("splines::ns(age, 2)", "Age spline ", term, fixed = TRUE)) |>
+           term = sub("splines::ns(age, 2)", "Age spline ", term, fixed = TRUE),
+           p.value = trimws(format.pval(p.value, digits = 3, eps = .001))) |>
     select(term, estimate, std.error, conf.low, conf.high, p.value)
   writeLines(kable(
     model_table, format = "latex", booktabs = TRUE, digits = 3,
@@ -152,6 +153,10 @@ for (category in c("No HS", "Postgrad Degree", "Black", "White", "Hispanic/Latin
     "%.2f", nonspam_means$mean[nonspam_means$category == category]
   )
 }
+count_names <- c(
+  "sampleSize", "eventCount", "nonspamCount", "missingDomainCount", "topDomainEvents"
+)
+numbers[count_names] <- format(as.integer(numbers[count_names]), big.mark = ",", trim = TRUE)
 writeLines(paste0("\\newcommand{\\", names(numbers), "}{", numbers, "}"), "tabs/numbers.tex")
 
 for (section in c("age_sex", "race_education")) {
