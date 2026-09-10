@@ -1,34 +1,18 @@
+\begin{table}
 
-% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Sat, Apr 27, 2019 - 5:55:59 PM
-\begin{table}[!htbp] \centering 
-  \caption{Number of Breaches by Education} 
-  \label{tab:educ_breaches} 
-\begin{tabular}{@{\extracolsep{5pt}}lc} 
-\\[-1.8ex]\hline 
-\hline \\[-1.8ex] 
- & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-2} 
-\\[-1.8ex] & Number of Breaches \\ 
-\hline \\[-1.8ex] 
- HS Grad. & .54$^{***}$ \\ 
-  & (.16) \\ 
-  Some College & .69$^{***}$ \\ 
-  & (.16) \\ 
-  2-year College Degree & .72$^{***}$ \\ 
-  & (.18) \\ 
-  4-year College Degree & .87$^{***}$ \\ 
-  & (.17) \\ 
-  Postgrad Degree & .85$^{***}$ \\ 
-  & (.18) \\ 
-  Constant & 2.35$^{***}$ \\ 
-  & (.14) \\ 
- \hline \\[-1.8ex] 
-Observations & 5,000 \\ 
-R$^{2}$ & .01 \\ 
-Adjusted R$^{2}$ & .01 \\ 
-\hline 
-\hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-\end{tabular} 
-\end{table} 
+\caption{\label{tab:educ_breaches}Recorded Exposures by Education}
+\centering
+\begin{tabular}[t]{lrrrrr}
+\toprule
+Term & Estimate & SE & Lower & Upper & p\\
+\midrule
+(Intercept) & 2.349 & 0.142 & 2.071 & 2.627 & 0.000\\
+HS Grad. & 0.534 & 0.155 & 0.229 & 0.839 & 0.001\\
+Some College & 0.683 & 0.164 & 0.361 & 1.004 & 0.000\\
+2-year College Degree & 0.719 & 0.180 & 0.367 & 1.072 & 0.000\\
+4-year College Degree & 0.853 & 0.166 & 0.528 & 1.178 & 0.000\\
+\addlinespace
+Postgrad Degree & 0.851 & 0.180 & 0.498 & 1.205 & 0.000\\
+\bottomrule
+\end{tabular}
+\end{table}
