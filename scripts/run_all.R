@@ -1,0 +1,12 @@
+source("scripts/prepare_data.R")
+source("scripts/analyze.R")
+
+dir.create("results", showWarnings = FALSE)
+write_csv(people, "results/people.csv")
+write_csv(totals, "results/totals.csv")
+write_csv(group_stats, "results/group_stats.csv")
+write_csv(demographics, "results/demographics.csv")
+write_csv(coefficients, "results/coefficients.csv")
+write_csv(sex_contrasts, "results/sex_contrasts.csv")
+write_csv(domain_counts, "results/domain_counts.csv")
+write_csv(cps_comparison, "results/cps_comparison.csv")

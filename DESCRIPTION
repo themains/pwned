@@ -1,0 +1,19 @@
+Package: pwnedresearch
+Type: Project
+Title: Pwned Research Analysis
+Imports:
+    broom,
+    dplyr,
+    ggplot2,
+    jsonlite,
+    knitr,
+    lintr,
+    lmtest,
+    purrr,
+    readr,
+    renv,
+    sandwich,
+    testthat,
+    tibble,
+    tidyr,
+    withr

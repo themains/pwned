@@ -1,10 +1,12 @@
-
+```{r setup, include=FALSE}
+source("scripts/run_all.R")
+```
 
 # Pwned: The Risk of Exposure From Data Breaches
 
-This research repository combines an archived YouGov sample with July 2018 Have I Been Pwned (HIBP) records. One registered email was queried for each of 5,000 adults. We study recorded exposure and its associations with age, education, sex, and race/ethnicity.
+This research repository combines an archived YouGov sample with July 2018 Have I Been Pwned (HIBP) records. One registered email was queried for each of `r format(nrow(people), big.mark = ",")` adults. We study recorded exposure and its associations with age, education, sex, and race/ethnicity.
 
-82.84% of sampled adults have at least one recorded exposure, with a mean of 2.9902 person–breach records. Restricting to verified, nonspam records gives 71.78% and a mean of 1.8608. Both outcomes retain every respondent, including zeros.
+`r sprintf("%.2f", 100 * totals$share_exposed[totals$outcome == "all_exposures"])`% of sampled adults have at least one recorded exposure, with a mean of `r sprintf("%.4f", totals$mean[totals$outcome == "all_exposures"])` person–breach records. Restricting to verified, nonspam records gives `r sprintf("%.2f", 100 * totals$share_exposed[totals$outcome == "nonspam_exposures"])`% and a mean of `r sprintf("%.4f", totals$mean[totals$outcome == "nonspam_exposures"])`. Both outcomes retain every respondent, including zeros.
 
 These are counts for one email per sampled person. HIBP coverage is incomplete, and the demographic comparisons are associations. The study does not measure online-service use or identify a causal mechanism. The [manuscript](ms/pwned.pdf) and [supplement](ms/pwned_si.pdf) explain the design and limits.
 

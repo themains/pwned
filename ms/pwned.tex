@@ -9,14 +9,14 @@
     \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
 
 \usepackage{multirow}
-% Rights management information. 
+% Rights management information.
 % This information is sent to you when you complete the rights form.
 % These commands have SAMPLE values in them; it is your responsibility as an author to replace
 % the commands and values with those provided to you when you complete the rights form.
 %
 % These commands are for a PROCEEDINGS abstract or paper.
-\copyrightyear{2019} 
-\acmYear{2019} 
+\copyrightyear{2019}
+\acmYear{2019}
 \setcopyright{acmlicensed}
 \acmConference[WebSci '19]{11th ACM Conference on Web Science}{June 30-July 3, 2019}{Boston, MA, USA}
 \acmBooktitle{11th ACM Conference on Web Science (WebSci '19), June 30-July 3, 2019, Boston, MA, USA}
@@ -34,7 +34,7 @@
 %\acmDOI{10.1145/1122445.1122456}
 
 %
-% Submission ID. 
+% Submission ID.
 % Use this when submitting an article to a sponsored event. You'll receive a unique submission ID from the organizers
 % of the event, and this ID should be used as the parameter to this command.
 %\acmSubmissionID{123-A56-BU3}
@@ -45,6 +45,7 @@
 % the next command will enable that style.
 %\citestyle{acmauthoryear}
 \usepackage{verbatim}
+\input{../tabs/numbers.tex}
 %
 % end of the preamble, start of the body of the document source.
 \begin{document}
@@ -60,7 +61,7 @@ setwd(githubdir)
 \end{comment}
 %
 % The "title" command has an optional parameter, allowing the author to define a "short title" to be used in page headers.
-\title[Pwned]{Pwned: The Risk of Exposure From Data Breaches}\titlenote{Data, scripts, and supporting information can be downloaded from \url{http://github.com/themains/pwned}.}
+\title[Pwned]{Pwned: The Risk of Exposure From Data Breaches}\titlenote{Research revision, September 10, 2026, of the 2019 paper. Data, scripts, and supporting information can be downloaded from \url{http://github.com/themains/pwned}.}
 
 %
 % The "author" command and its associated commands are used to define the authors and their affiliations.
@@ -69,9 +70,7 @@ setwd(githubdir)
 \author{Gaurav Sood}
 \authornotemark[1]
 \email{gsood07@gmail.com}
-\affiliation{%	\affiliation{%
-  \institution{}
-}
+
 
 \author{Ken Cor}
 \authornotemark[2]
@@ -90,7 +89,7 @@ setwd(githubdir)
 %
 % The abstract is a short summary of the work to be presented in the article.
 \begin{abstract}
-News about massive data breaches is increasingly common. But what proportion of Americans are exposed in these breaches is still unknown. We combine data from a large, representative sample of American adults (n = 5,000), recruited by YouGov, with data from \textit{Have I Been Pwned} to estimate the lower bound of the number of times Americans' private information has been exposed. We find that at least 82.84\% of Americans have had their private information, such as account credentials, Social Security Number, etc., exposed. On average, Americans' private information has been exposed in at least three breaches. The better educated, the middle-aged, women, and Whites are more likely to have had their accounts breached than the complementary groups.
+News about massive data breaches is increasingly common. But what proportion of Americans are exposed in these breaches is still unknown. We combine data from a large, representative sample of American adults (n = \sampleSize{}), recruited by YouGov, with data from \textit{Have I Been Pwned} to estimate the lower bound of the number of times Americans' private information has been exposed. We find recorded exposure for \exposedPercent{}\% of sampled adults, averaging \meanExposures{} records per person for the email queried. The better educated, the middle-aged, and women have higher average recorded counts; Whites and Blacks have higher counts than Hispanics/Latinos.
 \end{abstract}
 
 %
@@ -116,8 +115,8 @@ News about massive data breaches is increasingly common. But what proportion of 
 \keywords{Security risk, Privacy risk, Data breaches, Digital divide}
 
 %
-% A "teaser" image appears between the author and affiliation information and the body 
-% of the document, and typically spans the page. 
+% A "teaser" image appears between the author and affiliation information and the body
+% of the document, and typically spans the page.
 %\begin{teaserfigure}
 %  \includegraphics[width=\textwidth]{sampleteaser}
 %  \caption{Seattle Mariners at Spring Training, 2010.}
@@ -133,118 +132,50 @@ News about massive data breaches is increasingly common. But what proportion of 
 \section{Introduction}
 On the Internet, nobody knows you're a dog. So the adage goes. But increasingly, others know that you like dog food and hate cats. Many of us have made our peace with this new reality. A slew of massive account breaches in recent years, however, threatens to pull the rug from under all illusions of anonymity \cite{mccandless}.\footnote{On September 22, 2016, for instance, Yahoo! revealed that 500M accounts had been compromised in a breach \cite{fiegerman}. Less than three months later, on December 14, 2016, Yahoo! announced that data had been stolen from nearly 1B user accounts in a different breach \cite{newman}. In all, Wikipedia lists 272 separate breaches between 2004 and 2018 (see \href{https://en.wikipedia.org/wiki/List_of_data_breaches}{https://en.wikipedia.org/wiki/List\_of\_data\_breaches})}
 
-But there is little existing research on how frequently Americans' private information is part of such breaches. Much of the research on data breaches has focused on the downstream impact on corporations, e.g., \cite{whitler2017impact, rosati2019social, janakiraman2018effect}, and people, e.g., \cite{cross2019media, mikhed2018data, curtis2018consumer}. Such research is vital---it informs data breach notification policies, e.g., \cite{nieuwesteeg2018analysis, marcus2018data, kuhn2018147}. But absent from the literature is data that is important for developing effective public policy on corporate liability for data breaches---data on the average American's risk of their private information being exposed in a data breach. In this note, we shed light on this question. 
+But there is little existing research on how frequently Americans' private information is part of such breaches. Much of the research on data breaches has focused on the downstream impact on corporations, e.g., \cite{whitler2017impact, rosati2019social, janakiraman2018effect}, and people, e.g., \cite{cross2019media, mikhed2018data, curtis2018consumer}. Such research is vital---it informs data breach notification policies, e.g., \cite{nieuwesteeg2018analysis, marcus2018data, kuhn2018147}. But absent from the literature is data that is important for developing effective public policy on corporate liability for data breaches---data on the average American's risk of their private information being exposed in a data breach. In this note, we shed light on this question.
 
-Using a unique dataset, we estimate the lower bound of the average number of breached online accounts per person. We merge data from a large representative sample from YouGov (n = 5,000) with data from \href{https://haveibeenpwned.com}{Have I Been Pwned} (HIBP). We check whether the email associated with the YouGov account is part of the 293 public breaches cataloged by HIBP. We also study how exposure to breaches varies by socio-economic factors including ethnicity, sex, age, and education.
+Using a unique dataset, we estimate the lower bound of the average number of recorded exposures per person. We merge data from a large representative sample from YouGov (n = \sampleSize{}) with data from \href{https://haveibeenpwned.com}{Have I Been Pwned} (HIBP). We check whether the email associated with the YouGov account is part of the \catalogCount{} public breaches cataloged by HIBP. We also study how exposure to breaches varies by socio-economic factors including ethnicity, sex, age, and education.
 
 \section{Data and Methods}
-In July 2018, YouGov drew a nationally representative sample of 5,000 adult Americans. YouGov draws the sample as follows: it starts with a random sample of a high-quality sample of American adults, e.g., Current Population Survey, and then finds people on its panel that match the drawn sample most closely \cite{rivers}. Some research suggests that the quality of samples drawn by YouGov is comparable to those drawn using probability sampling \cite{ansolabehere}. The sample that YouGov drew here, however, is better than its traditional survey samples. Non-response bias in our sample is zero because YouGov did not have to send out surveys; it used the emails associated with the accounts to collect the data. (YouGov never shared the emails with us.) Table~\ref{table:yg_dat} presents the marginals on key socio-demographic variables (see \href{https://github.com/themains/pwned/tree/master/data}{here} for the codebook). (Table Supporting Information (SI)\footnote{Supporting information can be downloaded from \url{http://github.com/themains/pwned}.} 1.1 presents the comparison between the Current Population Survey (CPS) and YouGov on key demographic variables. The upshot is that on key marginals, the difference between YouGov and CPS is less than 5\%.)
+In July 2018, YouGov drew a nationally representative sample of \sampleSize{} adult Americans. YouGov draws the sample as follows: it starts with a random sample of a high-quality sample of American adults, e.g., Current Population Survey, and then finds people on its panel that match the drawn sample most closely \cite{rivers}. Some research suggests that the quality of samples drawn by YouGov is comparable to those drawn using probability sampling \cite{ansolabehere}. The lookup required no new survey response: YouGov used the emails associated with the accounts to collect the data. Prior panel participation and coverage still affect generalization to American adults. (YouGov never shared the emails with us.) Table~\ref{tab:yg_dat} presents the marginals on key socio-demographic variables (see \href{https://github.com/themains/pwned/tree/master/data}{here} for the codebook). (Table Supporting Information (SI)\footnote{Supporting information can be downloaded from \url{http://github.com/themains/pwned}.} 1.1 presents the comparison between the Current Population Survey (CPS) and YouGov on key demographic variables. The upshot is that on key marginals, differences in age, sex, and education shares are less than five percentage points. Race and ethnicity categories are not commensurate, as discussed in the SI.)
 
-\begin{table}[h!]
-\centering
-\caption{YouGov Sample Characteristics}
-\begin{tabular}{ l c }
-\hline    
- & proportion \\
-\hline
-race   & \\
-\hspace{2mm}white            &  .67\\
-\hspace{2mm}hispanic/latino  &  .13\\
-\hspace{2mm}black            &  .12\\
-\hspace{2mm}asian            &  .03\\
-\hspace{2mm}middle eastern   &  .02\\
-\hspace{2mm}mixed race       &  .01\\
-\hspace{2mm}native american  &  .01\\
-\hspace{2mm}other            &  .00\\
-& \\
-sex & \\
-\hspace{2mm}female           &  .54\\
-& \\
-age & \\
-\hspace{2mm}(18, 25]     & .09 \\
-\hspace{2mm}(25, 35]     & .19 \\
-\hspace{2mm}(35, 50]     & .26 \\
-\hspace{2mm}(50, 65]     & .28 \\
-\hspace{2mm}(65, 100]    & .18 \\
-& \\
-education & \\
-\hspace{2mm}no hs                 &   .06\\
-\hspace{2mm}hs grad.            &     .32\\
-\hspace{2mm}some college        &     .20\\
-\hspace{2mm}2-year college degree &   .11\\
-\hspace{2mm}4-year college degree &   .19\\
-\hspace{2mm}postgrad degree       &   .11\\
-\hline
-\end{tabular}
-\label{table:yg_dat}
-\end{table}
+\input{../tabs/sample.tex}
 
-After drawing the sample, YouGov used the emails associated with the accounts to query the HIBP API. (YouGov did the lookups so that it didn't have to share the email IDs.) HIBP is a non-profit clearinghouse of information about online account breaches. HIBP's stated aim is to provide a way for people to check if they are at risk from online breaches. It currently carries data from 293 breaches covering 278 unique domains and 5,235,843,322 accounts, including data from prominent breaches like the two Yahoo! breaches covering nearly 1.5 billion accounts. The HIPB data are, however, not comprehensive. Security researchers believe that there are many breaches that the companies are unaware of and at least a few cases where a company doesn't share information about a breach it knows about. HIBP also refuses to provide data on sensitive breaches---breached accounts where a person's inclusion may adversely affect them---from their public API\footnote{HIBP website notes that it does not share whether or not an account has been part of the breach at Adult Friend Finder, Ashley Madison, Beautiful People, Bestialitysextaboo, Brazzers, CrimeAgency vBulletin Hacks, Fling, Florida Virtual School, Freedom Hosting II, Fridae, Fur Affinity, HongFire, Mate1.com, Muslim Match, Naughty America, Non Nude Girls, Rosebutt Board, The Candid Board, The Fappening, xHamster and 1 more.}.  So data from HIBP only gives us a lower bound.
+After drawing the sample, YouGov used the emails associated with the accounts to query the HIBP API. (YouGov did the lookups so that it didn't have to share the email IDs.) HIBP is a non-profit clearinghouse of information about online account breaches. HIBP's stated aim is to provide a way for people to check if they are at risk from online breaches. The archived July 2018 catalogue contains data from \catalogCount{} breaches covering \catalogDomains{} unique domains and \catalogAccounts{} accounts, including data from prominent breaches like the two Yahoo! breaches covering nearly 1.5 billion accounts. The HIBP data are, however, not comprehensive. Security researchers believe that there are many breaches that the companies are unaware of and at least a few cases where a company doesn't share information about a breach it knows about. HIBP also refuses to provide data on sensitive breaches---breached accounts where a person's inclusion may adversely affect them---from their public API\footnote{HIBP website notes that it does not share whether or not an account has been part of the breach at Adult Friend Finder, Ashley Madison, Beautiful People, Bestialitysextaboo, Brazzers, CrimeAgency vBulletin Hacks, Fling, Florida Virtual School, Freedom Hosting II, Fridae, Fur Affinity, HongFire, Mate1.com, Muslim Match, Naughty America, Non Nude Girls, Rosebutt Board, The Candid Board, The Fappening, xHamster and 1 more.}.  So data from HIBP only gives us a lower bound.
 
-HIPB provides an easy way to get all the breached accounts associated with a particular email ID---you just need to make a simple API call passing the email that you want to get data on. This method gives us data on all the breaches logged by HIPB for all the 5,000 profiles. There is one caveat.  Our YouGov sample provides data associated with only one email ID, the email people used to register with YouGov. People often have multiple email IDs. And that is another reason why all we get from this data is a lower bound. The actual number of breached accounts per person is likely much higher. 
+HIBP provides an easy way to get all the breached accounts associated with a particular email ID---you just need to make a simple API call passing the email that you want to get data on. This method gives us data on all the breaches logged by HIBP for all the \sampleSize{} profiles. There is one caveat.  Our YouGov sample provides data associated with only one email ID, the email people used to register with YouGov. People often have multiple email IDs. And that is another reason why all we get from this data is a lower bound. The actual number of exposures per person is likely much higher.
 
-With each request, HIBP returns some metadata on the kind of breaches. (See the \href{https://github.com/themains/pwned/blob/master/data/Profile_codebook_ygov1058.pdf}{codebook} for details about all the data that it returns.) Two pieces of information are material here. HIBP classifies each breach as verified or unverified. And it defines unverified breaches as breaches whose ``legitimacy'' it cannot ``establish beyond [a] reasonable doubt.'' HIBP includes these unverified breaches because ``they still contain personal information about individuals who want to understand their exposure on the web.'' The other material column that HIBP returns relates to whether a breach is part of a ``spam list.'' HIBP defines {\it SpamList} as cases where ``large volumes of personal data are found being utilized for the purposes of sending targeted spam.'' HIBP adds, ``This often includes many of the same attributes frequently found in data breaches such as names, addresses, phones numbers and dates of birth. The lists are often aggregated from multiple sources, frequently by eliciting personal information from people with the promise of a monetary reward.'' And the reason HIBP includes these data is: ``whilst the data may not have been sourced from a breached system, the personal nature of the information and the fact that it's redistributed in this fashion unbeknownst to the owners warrants inclusion here.''
+With each request, HIBP returns some metadata on the kind of breaches. (See the \href{https://github.com/themains/pwned/blob/master/data/hibp_codebook.xlsx}{codebook} for details about all the data that it returns.) Two pieces of information are material here. HIBP classifies each breach as verified or unverified. And it defines unverified breaches as breaches whose ``legitimacy'' it cannot ``establish beyond [a] reasonable doubt.'' HIBP includes these unverified breaches because ``they still contain personal information about individuals who want to understand their exposure on the web.'' The other material column that HIBP returns relates to whether a breach is part of a ``spam list.'' HIBP defines {\it SpamList} as cases where ``large volumes of personal data are found being utilized for the purposes of sending targeted spam.'' HIBP adds, ``This often includes many of the same attributes frequently found in data breaches such as names, addresses, phones numbers and dates of birth. The lists are often aggregated from multiple sources, frequently by eliciting personal information from people with the promise of a monetary reward.'' And the reason HIBP includes these data is: ``whilst the data may not have been sourced from a breached system, the personal nature of the information and the fact that it's redistributed in this fashion unbeknownst to the owners warrants inclusion here.''
 
 \section{Results}
 
-In all, 14,979 breaches are associated with the 5,000 emails on file. Or on average, there are three breaches per person. The median is also three. And at least 82.84\% of Americans' accounts have been breached at least once. 
+After removing \duplicateCount{} exact duplicate records, \eventCount{} recorded exposures are associated with the \sampleSize{} emails on file. On average, there are \meanExposures{} records per person; the median is \medianExposures{}. At least one exposure is recorded for \exposedPercent{}\% of sampled adults. Each record represents one person--breach pair, not a distinct breach incident.
 
-The relationship between the number of breaches and socio-economic is counter to what focusing on traditional concerns around the digital divide would lead us to believe. If anything, the data suggest that people who use online services more are somewhat more likely to have their accounts breached. (See SI 1 Tables and SI 2 Figures for corresponding regressions and figures illustrating group-wise means along with the 95\% confidence intervals.) 
+The association between exposure counts and socioeconomic characteristics runs counter to what focusing on traditional concerns around the digital divide would lead us to believe. One possible explanation is that people who use online services more accumulate more exposures. We do not measure service use here, so this remains a hypothesis. (See SI 1 Tables and SI 2 Figures for corresponding regressions and figures illustrating group-wise means along with the 95\% confidence intervals.)
 
-The number of breaches increases roughly monotonically with education (see Table SI 1.4 and Figure SI 2.3). The average number of breaches among people with no high school degree is 2.35. Compare this to postgraduates, who are part of 3.20 breaches on average (or 1.3 times the average of people with no high school degree).
+The number of recorded exposures increases roughly monotonically with education (see Table SI 1.4 and Figure SI 2.3). The average number of recorded exposures among people with no high school degree is \noHighSchoolMean{}. Compare this to postgraduates, who are part of \postgraduateMean{} recorded exposures on average.
 
-In contrast to the relationship between education and the number of breaches, the relationship between the number of breaches and age is curvilinear (see Table SI 1.5), with young people's and seniors' accounts least likely to be breached, and middle-aged adults' accounts most likely to be breached. But, as the loess illustrates (see Figure SI 2.4), the relationship is modest.
+In contrast to the relationship between education and the number of recorded exposures, the relationship between the number of recorded exposures and age is curvilinear (see Table SI 1.5), with young people and seniors having lower recorded counts than middle-aged adults. But, as the loess illustrates (see Figure SI 2.4), the relationship is modest.
 
 \input{../tabs/tab2_freq_se_by_group.tex}
 
-When we compare the average number of breaches among men and women, we find that women's accounts are 1.12 times more likely to be breached than men's (see Table ~\ref{table:socdem_dat} and Table SI 1.3; $p < .05$). Analyzing breaches by ethnicity, Blacks' and Whites' accounts are most frequently breached. The mean number of breaches associated with the emails for Blacks and Whites is 3.12 and 3.16 respectively. For Hispanics/Latinos, the corresponding number is 2.5 (see Table SI 1.2; $p < .05$). And for Asians, the mean is 2.82.
+When we compare the average number of recorded exposures among men and women, we find that women have \femaleMaleRatio{} times the average recorded count of men (see Table ~\ref{tab:socdem_dat} and Table SI 1.3; $p < .05$). Analyzing breaches by ethnicity, Blacks' and Whites' accounts are most frequently breached. The mean number of recorded exposures associated with the emails for Blacks and Whites is \blackMean{} and \whiteMean{} respectively. For Hispanics/Latinos, the corresponding number is \hispanicMean{} (see Table SI 1.2; $p < .05$). And for Asians, the mean is \asianMean{}.
 
-To assess the source of the exposure, we checked the source of the breaches. The 14,979 breaches stemmed from 156 different sites, but there was a sharp skew with 21 sites with more than 100 breaches accounting for 11,783 of the breaches. Table ~\ref{table:domain_dat} lists the 21 sites. Prominent websites like \url{linkedin.com}, \url{adobe.com}, \url{dropbox.com}, \url{lastfm.com}, among others feature on the list.
+To assess the source of the exposure, we checked the source of the breaches. The records cover \breachCount{} breach identifiers and \domainCount{} nonempty domains (\missingDomainCount{} records have no domain), but there was a sharp skew with \topDomainCount{} domains with more than 100 records accounting for \topDomainEvents{} exposures. Table ~\ref{tab:domain_dat} lists the \topDomainCount{} sites. Prominent websites like \url{linkedin.com}, \url{adobe.com}, \url{dropbox.com}, \url{lastfm.com}, among others feature on the list.
 
-\begin{table}[h!]
-\centering
-\caption{Most Frequently Implicated Domains}
-\begin{tabular}{ l c }
-\hline    
-domain name & n \\
-\hline
-rivercitymediaonline.com &   2,913 \\
-linkedin.com             &   1,089 \\
-modbsolutions.com        &   1,067\\
-myspace.com              &   1,059\\
-data4marketers.com       &    996\\
-cashcrate.com            &    856\\
-adobe.com                &    609\\
-disqus.com               &    570\\
-ticketfly.com            &    393\\
-tumblr.com               &    340\\
-dropbox.com              &    288\\
-dailymotion.com          &    255\\
-last.fm                  &    248\\
-evony.com                &    171\\
-clixsense.com            &    150\\
-cafemom.com              &    145\\
-imesh.com                &    144\\
-kickstarter.com          &    140\\
-edmodo.com               &    130\\
-zomato.com               &    112\\
-neopets.com              &    108\\
-\hline
-\end{tabular}
-\label{table:domain_dat}
-\end{table}
+\input{../tabs/domains.tex}
 
-In the analysis presented until now, we don't distinguish between different kinds of breaches. But not all breaches are equally grave. So next, we shed light on the type of breaches.  Of the 15,837 breaches, 14,979 or 94.58\% were part of verified breaches. And about a third of the 15,837 breaches are categorized as {\it SpamList}. In all, we have 10,188 breaches that are verified and not categorized as {\it SpamList}. We focus our attention on these plausibly graver breaches, checking whether the relationship with socio-economic variables we see above hold in this smaller subset. 
+The analysis so far includes all recorded exposures. All observed records are marked verified (\verifiedPercent{}\%); \spamPercent{}\% are categorized as {\it SpamList}. Excluding spam lists leaves \nonspamCount{} qualifying records. We retain all \sampleSize{} respondents, including those with zero qualifying records: the mean is \nonspamMean{} and \nonspamPercent{}\% have at least one qualifying exposure.
 
 \input{../tabs/tab4_freq_se_by_validate_group.tex}
 
-When we look at education, the pattern holds up. Once again, the number of breached accounts per person for people with a college degree or more is higher than for people who only got as far as high school (see Table \ref{table:socdem_verified_dat}). Moving to sex, the pattern is more attenuated with women just nudging ahead of men---the mean for women and men is 2.15 and 2.05 respectively.  The general pattern for age remains roughly similar to what we saw above, with the middle-aged more likely to have their accounts breached compared to people younger than 25 and older than 65. Breaking down by race, we see some interesting changes. Asians join Whites near the top of the pile, with means of about 2.2. Accounts of Hispanics or Latinos are less likely to be part of verified non-spam-list breaches (mean = 1.73, $p < .05$). The big relative change is for Blacks; African-Americans are likelier to be part of unverified, {\it SpamList} breaches.
+When we look at education, the pattern holds up. Once again, the number of recorded exposures per person for people with a college degree or more is higher than for people who only got as far as high school (see Table \ref{tab:socdem_verified_dat}). Moving to sex, the pattern is more attenuated with women just nudging ahead of men---the mean for women and men is \femaleNonspamMean{} and \maleNonspamMean{} respectively, with little evidence of a difference.  The general pattern for age remains roughly similar to what we saw above, with the middle-aged having higher recorded counts than the youngest and oldest groups. Breaking down by race, we see some interesting changes. The means for Asians and Whites are \asianNonspamMean{} and \whiteNonspamMean{}. Hispanics/Latinos have a lower mean of \hispanicNonspamMean{}. The mean for Blacks is \blackNonspamMean{}, below that for Whites. This change concerns spam-list inclusion; verification status does not vary among the observed records.
 
 \section{Conclusion}
 
-Nearly 83\% of Americans' have had their accounts breached at least once. In total, the 5,000 email accounts on file are associated with 14,979 breaches. Or, on average, people's accounts have been breached thrice. This number, though, is the lower bound for three reasons. First, not all breaches are made public. Second, HIBP doesn't allow access to data on sensitive breaches---breached online accounts on services that may have reputational consequences for people---via its public API. Third, many Americans have multiple email accounts. We only had one email ID per person. 
+Recorded exposure affects \exposedPercent{}\% of sampled adults. In total, the \sampleSize{} email accounts on file are associated with \eventCount{} exposure records. The average is \meanExposures{} recorded exposures per person. This number, though, is the lower bound for three reasons. First, not all breaches are made public. Second, HIBP doesn't allow access to data on sensitive breaches---breached online accounts on services that may have reputational consequences for people---via its public API. Third, many Americans have multiple email accounts. We only had one email ID per person.
 
-We also find that the kinds of people who are most likely to use online services---the better educated, Whites, etc.---are generally the most exposed. This finding is consistent with Laohaprapanon and Sood, who find that the better educated, people with higher incomes, and racial majorities spend a smaller proportion of time online on problematic sites, but because they are online more often, they end up visiting more such sites \cite{laohaprapanon}. This is contrary to the traditional narrative about the digital divide \cite{van2011internet}.
+The demographic patterns are consistent with a role for differences in online-service use, although these data do not establish that mechanism. This finding is consistent with Laohaprapanon and Sood, who find that the better educated, people with higher incomes, and racial majorities spend a smaller proportion of time online on problematic sites, but because they are online more often, they end up visiting more such sites \cite{laohaprapanon}. This is contrary to the traditional narrative about the digital divide \cite{van2011internet}.
 
 \clearpage
 \bibliographystyle{ACM-Reference-Format}

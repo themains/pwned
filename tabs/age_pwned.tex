@@ -1,28 +1,14 @@
+\begin{table}
 
-% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Sat, Apr 27, 2019 - 5:56:00 PM
-\begin{table}[!htbp] \centering 
-  \caption{Number of Breaches by Age} 
-  \label{tab:age_breaches} 
-\begin{tabular}{@{\extracolsep{5pt}}lc} 
-\\[-1.8ex]\hline 
-\hline \\[-1.8ex] 
- & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-2} 
-\\[-1.8ex] & Number of Breaches \\ 
-\hline \\[-1.8ex] 
- ns(age, 2)1 & 2.23$^{***}$ \\ 
-  & (.20) \\ 
-  ns(age, 2)2 & $-$.90$^{***}$ \\ 
-  & (.21) \\ 
-  Constant & 2.01$^{***}$ \\ 
-  & (.09) \\ 
- \hline \\[-1.8ex] 
-Observations & 5,000 \\ 
-R$^{2}$ & .03 \\ 
-Adjusted R$^{2}$ & .03 \\ 
-\hline 
-\hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-\end{tabular} 
-\end{table} 
+\caption{\label{tab:age_breaches}Recorded Exposures by Age}
+\centering
+\begin{tabular}[t]{lrrrrl}
+\toprule
+Term & Estimate & SE & Lower & Upper & p\\
+\midrule
+(Intercept) & 1.989 & 0.091 & 1.810 & 2.167 & <0.001\\
+Age spline 1 & 2.281 & 0.203 & 1.884 & 2.679 & <0.001\\
+Age spline 2 & -0.900 & 0.209 & -1.309 & -0.491 & <0.001\\
+\bottomrule
+\end{tabular}
+\end{table}

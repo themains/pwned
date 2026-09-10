@@ -1,38 +1,20 @@
+\begin{table}
 
-% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Sat, Apr 27, 2019 - 5:55:59 PM
-\begin{table}[!htbp] \centering 
-  \caption{Number of Breaches by Race/Ethnicity} 
-  \label{tab:race_breaches} 
-\begin{tabular}{@{\extracolsep{5pt}}lc} 
-\\[-1.8ex]\hline 
-\hline \\[-1.8ex] 
- & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-2} 
-\\[-1.8ex] & Number of Breaches \\ 
-\hline \\[-1.8ex] 
- Black & .04 \\ 
-  & (.12) \\ 
-  Hispanic/Latino & $-$.62$^{***}$ \\ 
-  & (.10) \\ 
-  Asian & $-$.30 \\ 
-  & (.23) \\ 
-  Native American & $-$.16 \\ 
-  & (.36) \\ 
-  Middle Eastern & $-$.46$^{**}$ \\ 
-  & (.24) \\ 
-  Mixed Race & $-$.67$^{**}$ \\ 
-  & (.29) \\ 
-  Other & $-$.20 \\ 
-  & (.73) \\ 
-  Constant & 3.12$^{***}$ \\ 
-  & (.05) \\ 
- \hline \\[-1.8ex] 
-Observations & 5,000 \\ 
-R$^{2}$ & .01 \\ 
-Adjusted R$^{2}$ & .01 \\ 
-\hline 
-\hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-\end{tabular} 
-\end{table} 
+\caption{\label{tab:race_breaches}Recorded Exposures by Race/Ethnicity}
+\centering
+\begin{tabular}[t]{lrrrrl}
+\toprule
+Term & Estimate & SE & Lower & Upper & p\\
+\midrule
+(Intercept) & 3.113 & 0.046 & 3.024 & 3.203 & <0.001\\
+Black & 0.044 & 0.116 & -0.184 & 0.271 & 0.7069\\
+Hispanic/Latino & -0.618 & 0.104 & -0.822 & -0.415 & <0.001\\
+Asian & -0.290 & 0.227 & -0.735 & 0.155 & 0.2021\\
+Native American & -0.152 & 0.363 & -0.863 & 0.559 & 0.6757\\
+\addlinespace
+Mixed Race & -0.457 & 0.234 & -0.915 & 0.001 & 0.0507\\
+Other & -0.667 & 0.288 & -1.233 & -0.102 & 0.0207\\
+Middle Eastern & -0.190 & 0.721 & -1.603 & 1.223 & 0.7919\\
+\bottomrule
+\end{tabular}
+\end{table}
